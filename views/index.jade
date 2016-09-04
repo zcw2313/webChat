@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title= title
+    include ./includes/head
+    link(type="text/css" rel="stylesheet" href="/stylesheets/common.css")
+    link(type="text/css" rel="stylesheet" href="/stylesheets/chat.css")
+    script(src="/javascripts/jquery.cookie.js")
+    script(src="/javascripts/json2.js")
+    script(src="/socket.io/socket.io.js")
+  body
+    include ./includes/header
+    #contain
+      #content
+        #toolbar
+        #content_show
+          #contents
+        #content_saying
+          #input_content(contenteditable="true")
+          #say 发送
+      #users_online
+        #usersbar
+          #user_label(name="#{user.name}") 用户列表
+          #users_list
+            ul#list
+              each yh in users
+                if yh.name !== user.name
+                    if yh.islogin === 1
+                      li(to="#{yh.name}" class="online" title="点击聊天") #{yh.name}
+                    else
+                      li(to="#{yh.name}" title="点击聊天") #{yh.name}
+    #ring(style="widht:0px; height:0px;")
+    script(src="/javascripts/chat.js")

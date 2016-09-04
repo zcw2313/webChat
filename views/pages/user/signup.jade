@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= title
+    include ./../../includes/head
+  body
+    .container
+      .row
+        .col-md-5
+          form(method="POST",action="/signup")
+            .modal-header 注册
+            .modal-body
+              .form-group
+                label(for="signupName") 用户名
+                input#signupName.form-control(name="user[name]",type="text")
+              .form-group
+                label(for="signupPassword") 密码
+                input#signupPassword.form-control(name="user[password]",type="text")
+              .form-group
+                a(href='/user/signin') 已经注册，直接登录
+            .modal-footer
+              button.btn.btn-default(type="button") 关闭
+              button.btn.btn-success(type="submit") 提交

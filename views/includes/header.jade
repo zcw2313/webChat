@@ -1,0 +1,9 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      a.navbar-brand(href="/") webChat 聊天室
+    if user
+      p.navbar-text.navbar-right
+        span 欢迎您，#{user.name}
+        span &nbsp;|&nbsp;
+        a#loginout.navbar-link(href="/loginout") 退出
